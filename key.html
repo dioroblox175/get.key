@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiển thị Key Ngẫu Nhiên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .key {
+            font-size: 24px;
+            color: #007BFF;
+            margin-top: 20px;
+        }
+        .info {
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chào bạn!</h1>
+        <p class="info">Dưới đây là key của bạn:</p>
+        <p class="key" id="key"></p>
+        <p class="info">Key này chỉ có thể sử dụng một lần.</p>
+    </div>
+
+    <script>
+        // Hàm lấy giá trị của query parameter từ URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Lấy key từ query parameter và hiển thị
+        const key = getQueryParam('key');
+        if (key) {
+            document.getElementById("key").textContent = key;
+        } else {
+            document.getElementById("key").textContent = "Không có key!";
+        }
+    </script>
+</body>
+</html>
